@@ -1,86 +1,115 @@
-## Documentation : Installation, ajout d'un client, préparation du déploiement de mise à jour.
+## Documentation : Installation, ajout d'un client, préparation du déploiement de mise à jour
 
-### 1️⃣ Installation du rôle WSUS.
+### 1️⃣ Installation du rôle WSUS
 
-Dans un premier temps, ouvrir le « Gestionnaire de serveur », cliquer sur « Gérer » puis « Ajouter des rôles et fonctionnalités ».
+#### Étape 1 : Ouvrir le « Gestionnaire de serveur »
 
-![Image1](/WSUS/src/img/installation-wsus-windows-server-2022-01.png)
-![Image2](/WSUS/src/img/installation-wsus-windows-server-2022-02.png)
-![Image3](/WSUS/src/img/installation-wsus-windows-server-2022-03.png)
-![Image4](/WSUS/src/img/installation-wsus-windows-server-2022-04.png)
-![Image5](/WSUS/src/img/installation-wsus-windows-server-2022-05.png)
-![Image6](/WSUS/src/img/installation-wsus-windows-server-2022-06.png)
-![Image7](/WSUS/src/img/installation-wsus-windows-server-2022-07.png)
-![Image8](/WSUS/src/img/installation-wsus-windows-server-2022-08.png)
-![Image9](/WSUS/src/img/installation-wsus-windows-server-2022-09.png)
-![Image10](/WSUS/src/img/installation-wsus-windows-server-2022-10.png)
-![Image11](/WSUS/src/img/installation-wsus-windows-server-2022-16.png)
+Dans un premier temps, ouvrez le **Gestionnaire de serveur**, puis cliquez sur **Gérer** et sélectionnez **Ajouter des rôles et fonctionnalités**.
 
-On peut vérifier que l'installation est terminée en regardant le dashboard.
+![Étape 1](/WSUS/src/img/installation-wsus-windows-server-2022-01.png)
 
-![Image12](/WSUS/src/img/Capture%20d'écran%202025-02-03%20104632.png)
+#### Étape 2 : Sélectionner les options d'installation
 
-### 2️⃣ Configuration de base de WSUS.
+![Étape 2](/WSUS/src/img/installation-wsus-windows-server-2022-02.png)
+![Étape 3](/WSUS/src/img/installation-wsus-windows-server-2022-03.png)
+![Étape 4](/WSUS/src/img/installation-wsus-windows-server-2022-04.png)
+![Étape 5](/WSUS/src/img/installation-wsus-windows-server-2022-05.png)
+![Étape 6](/WSUS/src/img/installation-wsus-windows-server-2022-06.png)
+![Étape 7](/WSUS/src/img/installation-wsus-windows-server-2022-07.png)
+![Étape 8](/WSUS/src/img/installation-wsus-windows-server-2022-08.png)
+![Étape 9](/WSUS/src/img/installation-wsus-windows-server-2022-09.png)
+![Étape 10](/WSUS/src/img/installation-wsus-windows-server-2022-10.png)
 
-WSUS est installé sur notre serveur, lancer la console « Services WSUS » pour effectuer la configuration de base.
+#### Vérification de l'installation
 
-![Image13](/WSUS/src/img/installation-wsus-windows-server-2022-19.png)
+Une fois l'installation terminée, vous pouvez vérifier l'état via le **dashboard**.
 
-Ici on sélectionne la première option car la deuxième option n'est possible que dans le cas d'une architecture avec pusieurs serveurs WSUS :
+![Dashboard](/WSUS/src/img/Capture%20d'écran%202025-02-03%20104632.png)
 
-![Image14](/WSUS/src/img/installation-wsus-windows-server-2022-21.png)
+---
 
-Ici on n'utilise pas de proxy, alors il suffit de cliquer uniquement sur suivant :
+### 2️⃣ Configuration de base de WSUS
 
-![Image15](/WSUS/src/img/installation-wsus-windows-server-2022-22.png)
+#### Lancer la console « Services WSUS »
 
-Ensuite, cliquer sur « Start Connecting » pour que le serveur WSUS se connecte sur les serveurs Microsoft Update et récupère la liste des OS et logiciels pris en charge, les types de mises à jour, et les langages disponibles. Une fois la barre de progression pleine cliquer sur « Next ».
+Une fois WSUS installé, ouvrez la console **Services WSUS** pour effectuer la configuration initiale.
 
-![Image16](/WSUS/src/img/installation-wsus-windows-server-2022-23.png)
+![Console WSUS](/WSUS/src/img/installation-wsus-windows-server-2022-19.png)
 
-La prochaine étape est le choix des langues de mise à jour. Comme on utilise les serveurs en anglais et les clients en français, choisir les deux langues.
+#### Choisir l'option appropriée
 
-![Image17](/WSUS/src/img/installation-wsus-windows-server-2022-24.png)
+Sélectionnez la première option, car la deuxième est uniquement disponible pour une architecture WSUS multi-serveurs.
 
-La prochine étape consiste à sélectionner les produits pour lesquels nous voulons synchroniser les maj (Exchange, Office, Edge etc…). Ici on selectionne uniquement Windows Server 2019 et Windows 10/11. La séléction est modifiable à tout moment.
+![Option sélectionnée](/WSUS/src/img/installation-wsus-windows-server-2022-21.png)
 
-![Image18](/WSUS/src/img/installation-wsus-windows-server-2022-25.png)
-![Image19](/WSUS/src/img/installation-wsus-windows-server-2022-26.png)
+#### Configuration du proxy
 
-L’étape suivante concerne la classification des mises à jour, les types de mises à jour qu’il faut synchroniser sur le serveur.
+Si vous n'utilisez pas de proxy, cliquez sur **Suivant**.
 
-- « Mises à jour critique », « Mise à jour de la sécurité » et « Mise à jour » : maj mensuelles publiées par Microsoft
-- « Mises à jour de définitions » : maj Windows Defender.
-- « Upgrades » : mises à niveau de windows
+![Pas de proxy](/WSUS/src/img/installation-wsus-windows-server-2022-22.png)
 
-![Image20](/WSUS/src/img/installation-wsus-windows-server-2022-27.png)
+#### Connexion aux serveurs Microsoft Update
 
-Ensuite, il faut synchroniser les maj avec les serveurs Microsoft Update et les planifier pour recevoir les dernières maj. Ici on planifie la nuit pour ne pas surcharger la bande passante pendant les heures de travail
+Cliquez sur **Start Connecting** pour que WSUS se connecte aux serveurs Microsoft Update et récupère les informations nécessaires.
 
-![Image21](/WSUS/src/img/installation-wsus-windows-server-2022-28.png)
+![Connexion](/WSUS/src/img/installation-wsus-windows-server-2022-23.png)
 
-Enfin il faut cocher « Begin initial synchronization » pour réaliser une première synchronisation.
+#### Sélection des langues de mise à jour
 
-![Image22](/WSUS/src/img/installation-wsus-windows-server-2022-29.png)
+Choisissez les langues des mises à jour en fonction de votre environnement. Ici, nous sélectionnons l'anglais pour le serveur et le français pour les clients.
 
-### 3️⃣ Configuration des clients (via GPO).
+![Langues](/WSUS/src/img/installation-wsus-windows-server-2022-24.png)
 
-Création d'une GPO WSUS_Config
+#### Sélection des produits
 
-Editer la GPO via :
+Sélectionnez les produits pour lesquels vous souhaitez synchroniser les mises à jour. Ici, nous choisissons **Windows Server 2019** et **Windows 10/11**.
 
-- Configuration ordinateur > Modèles d'administration > Composants Windows > Windows Update
+![Produits](/WSUS/src/img/installation-wsus-windows-server-2022-25.png)
+![Suite des produits](/WSUS/src/img/installation-wsus-windows-server-2022-26.png)
+
+#### Choix des classifications de mises à jour
+
+Sélectionnez les types de mises à jour à synchroniser, comme les mises à jour critiques, de sécurité, et les mises à jour de définitions pour Windows Defender.
+
+![Classifications](/WSUS/src/img/installation-wsus-windows-server-2022-27.png)
+
+#### Planification de la synchronisation
+
+Programmez la synchronisation pour qu'elle se fasse pendant la nuit afin d'éviter de surcharger la bande passante durant les heures de travail.
+
+![Planification](/WSUS/src/img/installation-wsus-windows-server-2022-28.png)
+
+#### Lancer la première synchronisation
+
+Enfin, cochez l'option **Begin initial synchronization** pour effectuer la première synchronisation avec Microsoft Update.
+
+![Synchronisation](/WSUS/src/img/installation-wsus-windows-server-2022-29.png)
+
+---
+
+### 3️⃣ Configuration des clients (via GPO)
+
+#### Création de la GPO WSUS_Config
+
+Créez une **GPO** appelée `WSUS_Config` et éditez-la via :
+
+- **Configuration ordinateur** > **Modèles d'administration** > **Composants Windows** > **Windows Update**
 
 #### Configuration des paramètres WSUS
 
-1. Spécifier l'emplacement du service Microsoft Update sur intranet
+1. **Spécifier l'emplacement du service Microsoft Update sur intranet**
+   ![Emplacement WSUS](/WSUS/src/img/Capture%20d'écran%202025-02-03%20120520.png)
 
-![Image23](/WSUS/src/img/Capture%20d'écran%202025-02-03%20120520.png)
+2. **Configurer les mises à jour automatiques**
+   ![Mises à jour automatiques](/WSUS/src/img/Capture%20d'écran%202025-02-03%20115148.png)
 
-2. Configurer les mises à jour automatiques
+3. **Définir la fréquence de détection des mises à jour**
+   ![Fréquence de détection](/WSUS/src/img/Capture%20d'écran%202025-02-03%20115515.png)
 
-![Image23](/WSUS/src/img/Capture%20d'écran%202025-02-03%20115148.png)
+---
 
-3. Définir la fréquence de détection des mises à jour
+### Vérification des paramètres WSUS via GPO
 
-![Image23](/WSUS/src/img/Capture%20d'écran%202025-02-03%20115515.png)
+Enfin, vérifiez que les paramètres WSUS sont bien appliqués via les stratégies de groupe (GPO).
+
+![Vérification GPO](/WSUS/src/img/Capture%20d'écran%202025-02-03%20133122.png)
