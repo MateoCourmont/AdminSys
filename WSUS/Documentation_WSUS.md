@@ -112,4 +112,10 @@ Créez une **GPO** appelée `WSUS_Config` et éditez-la via :
 
 Enfin, vérifiez que les paramètres WSUS sont bien appliqués via les stratégies de groupe (GPO).
 
+Commande sur le serveur :
+
 ![Vérification GPO](/WSUS/src/img/Capture%20d'écran%202025-02-03%20133122.png)
+
+Commande sur le PC :
+
+![Vérification GPO2](/WSUS/src/img/Capture%20d'écran%202025-02-03%20134830.png)
