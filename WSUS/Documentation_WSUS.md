@@ -97,13 +97,13 @@ Créez une **GPO** appelée `WSUS_Config` et éditez-la via :
 
 #### Configuration des paramètres WSUS
 
-1. **Spécifier l'emplacement du service Microsoft Update sur intranet**
+1. **Spécifier l'emplacement du service Microsoft Update sur intranet** <br>
    ![Emplacement WSUS](/WSUS/src/img/Capture%20d'écran%202025-02-03%20120520.png)
 
-2. **Configurer les mises à jour automatiques**
+2. **Configurer les mises à jour automatiques** <br>
    ![Mises à jour automatiques](/WSUS/src/img/Capture%20d'écran%202025-02-03%20115148.png)
 
-3. **Définir la fréquence de détection des mises à jour**
+3. **Définir la fréquence de détection des mises à jour** <br>
    ![Fréquence de détection](/WSUS/src/img/Capture%20d'écran%202025-02-03%20115515.png)
 
 ---
